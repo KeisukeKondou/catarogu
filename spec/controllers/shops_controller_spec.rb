@@ -27,7 +27,7 @@ describe ShopsController do
     {
       name: 'test',
       description: 'test',
-      ines_summary: 'test'
+      lines_summary: 'test'
     }
   end
 
