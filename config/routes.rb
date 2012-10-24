@@ -1,4 +1,6 @@
 Catarogu::Application.routes.draw do
+  get "recommend", to: 'catarogu#recommend', as: :recommend
+
   root :to => 'catarogu#index'
 
   resources :shops

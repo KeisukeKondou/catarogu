@@ -13,6 +13,8 @@
       .container
         .brand
           = link_to 'Catarogu', root_path
+        %ul.nav
+          %li= link_to 'Recommend', recommend_path
   .container
     .content
       = yield
