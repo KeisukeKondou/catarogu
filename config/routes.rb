@@ -1,4 +1,6 @@
 Catarogu::Application.routes.draw do
+  root :to => 'catarogu#index'
+
   resources :shops
 
   resources :products
