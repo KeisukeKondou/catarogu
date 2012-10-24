@@ -22,7 +22,6 @@ end
 
 もし /^以下の内容で店舗を登録する:$/ do |table|
   shop_info = table.hashes[0]
-  p page.body
   fill_in 'shop_name', with: shop_info['店舗名']
   fill_in 'shop_description', with: shop_info['紹介文']
   fill_in 'shop_lines_summary', with: shop_info['取扱商品概要']
@@ -67,3 +66,18 @@ end
   end
 end
 
+前提 /^以下の商品が登録されている:$/ do |table|
+  table.hashes.each do |row|
+    Product.create!(name: row['商品名'], description: row['説明'], price: row['価格'].to_i)
+  end
+end
+
+もし /^トップページを表示する$/ do
+  visit "/"
+end
+
+ならば /^以下の商品が表示されていること:$/ do |table|
+  table.hashes.each do |row|
+    page.should have_content(row['商品名'])
+  end
+end
