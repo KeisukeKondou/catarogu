@@ -22,7 +22,6 @@ end
 
 もし /^以下の内容で店舗を登録する:$/ do |table|
   shop_info = table.hashes[0]
-  p page.body
   fill_in 'shop_name', with: shop_info['店舗名']
   fill_in 'shop_description', with: shop_info['紹介文']
   fill_in 'shop_lines_summary', with: shop_info['取扱商品概要']
